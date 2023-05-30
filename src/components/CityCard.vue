@@ -10,8 +10,12 @@
       </p>
       <div class="flex gap-2">
         <span class="text-xs">
-          H:
+          Макс:
           {{ Math.round(city.weather.main.temp_max)}}&deg;
+        </span>
+        <span class="text-xs">
+          Мин:
+          {{ Math.round(city.weather.main.temp_min)}}&deg;
         </span>
       </div>
     </div>

@@ -8,14 +8,28 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: "Главная страница"
+      }
     },
     {
       path: '/weather/:state/:city',
       name: 'cityView',
-      component: CityView
+      component: CityView,
+      meta: {
+        title: "Погода",
+      },
     },
   ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = `${
+    to.params.state
+      ? `${to.params.city}, ${to.params.state}` 
+        : to.meta.title} | Местная погода`;
+  next();
+});
 
 export default router
